@@ -1,6 +1,5 @@
 package com.example.basicapp
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -9,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
@@ -36,7 +33,7 @@ class UserProfileFragment : Fragment() {
             activity?.findViewById<TextView>(R.id.user_info)?.text = it.info
         })
         Log.d("last timestamp", viewModel?.savedStateHandle?.get("lastVisitTimeStamp") ?: "start")
-        viewModel?.savedStateHandle?.set("lastVisitTimeStamp", System.currentTimeMillis())
+        viewModel?.savedStateHandle?.set("lastVisitTimeStamp", System.currentTimeMillis().toString())
         Handler().postDelayed({ viewModel?.user?.value = User("new one") }, 5000)
     }
 }
