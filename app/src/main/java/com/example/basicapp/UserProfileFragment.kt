@@ -1,7 +1,6 @@
 package com.example.basicapp
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +33,6 @@ class UserProfileFragment : Fragment() {
         })
         Log.d("last timestamp", viewModel?.savedStateHandle?.get("lastVisitTimeStamp") ?: "start")
         viewModel?.savedStateHandle?.set("lastVisitTimeStamp", System.currentTimeMillis().toString())
-        Handler().postDelayed({ viewModel?.user?.value = User("new one") }, 5000)
+//        Handler().postDelayed({ viewModel?.user?.value = User("new one") }, 5000)
     }
 }
