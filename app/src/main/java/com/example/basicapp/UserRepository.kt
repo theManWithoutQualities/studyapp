@@ -2,14 +2,14 @@ package com.example.basicapp
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dagger.Component
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object UserRepository {
-
-    private val webservice: Webservice = Retrofit.Builder().baseUrl("http://url").build().create(Webservice::class.java)
+class UserRepository @Inject constructor( private val webservice: Webservice) {
 
     private val cache = hashMapOf<String, LiveData<User>>("1" to MutableLiveData(User("user # 1")))
 

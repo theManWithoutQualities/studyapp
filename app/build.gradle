@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.1"
@@ -58,10 +60,14 @@ dependencies {
 //    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
 
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
-    compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.1'
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.6.1'
 
     // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
-    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.0'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.0'
 
-
+    // https://mvnrepository.com/artifact/com.google.dagger/dagger
+    kapt group: 'com.google.dagger', name: 'dagger-compiler', version: '2.24'
+    kapt 'com.google.dagger:dagger-android-processor:2.24'
+    implementation group: 'com.google.dagger', name: 'dagger', version: '2.24'
+    implementation 'com.google.dagger:dagger-android-support:2.24'
 }
